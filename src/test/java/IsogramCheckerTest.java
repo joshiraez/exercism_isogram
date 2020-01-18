@@ -41,7 +41,6 @@ public class IsogramCheckerTest {
         assertFalse(iso.isIsogram("Alphabet"));
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void testDuplicatMixedCase() {
         IsogramChecker iso = new IsogramChecker();
