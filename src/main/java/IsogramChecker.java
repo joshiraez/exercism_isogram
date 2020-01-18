@@ -4,14 +4,17 @@ class IsogramChecker {
 
     boolean isIsogram(String phrase) {
 
-        return phrase.chars()
+        final String phraseNormalized = phrase.toLowerCase();
+
+        return phraseNormalized.chars()
                 .noneMatch(
-                        isTheLetterDuplicatedInPhrase(phrase)
+                        isTheLetterDuplicatedInPhrase(phraseNormalized)
                 );
 
     }
 
     private IntPredicate isTheLetterDuplicatedInPhrase(final String phrase) {
+
         return examiningLetterForDuplicate ->
             phrase.chars()
                 .filter(possibleSameLetter ->
