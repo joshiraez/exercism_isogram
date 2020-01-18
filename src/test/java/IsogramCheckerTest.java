@@ -47,7 +47,6 @@ public class IsogramCheckerTest {
         assertFalse(iso.isIsogram("alphAbet"));
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void testIsogramWithHyphen() {
         IsogramChecker iso = new IsogramChecker();
