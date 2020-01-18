@@ -1,4 +1,4 @@
-import java.util.Arrays;
+import java.util.function.IntPredicate;
 
 class IsogramChecker {
 
@@ -6,13 +6,17 @@ class IsogramChecker {
 
         return phrase.chars()
                 .noneMatch(
-                        examiningLetterForDuplicate ->
-                            phrase.chars()
-                                .filter(possibleSameLetter ->
-                                        possibleSameLetter == examiningLetterForDuplicate)
-                                .count() > 1
+                        isTheLetterDuplicatedInPhrase(phrase)
                 );
 
+    }
+
+    private IntPredicate isTheLetterDuplicatedInPhrase(final String phrase) {
+        return examiningLetterForDuplicate ->
+            phrase.chars()
+                .filter(possibleSameLetter ->
+                        possibleSameLetter == examiningLetterForDuplicate)
+                .count() > 1;
     }
 
 }
