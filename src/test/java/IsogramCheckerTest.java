@@ -23,7 +23,6 @@ public class IsogramCheckerTest {
         assertFalse(iso.isIsogram("eleven"));
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void testDuplicateEndAlphabet() {
         IsogramChecker iso = new IsogramChecker();
