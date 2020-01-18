@@ -77,7 +77,6 @@ public class IsogramCheckerTest {
         assertFalse(iso.isIsogram("accentor"));
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void testSameFirstAndLast() {
         IsogramChecker iso = new IsogramChecker();
