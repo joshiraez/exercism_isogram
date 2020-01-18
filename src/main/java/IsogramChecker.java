@@ -4,7 +4,8 @@ class IsogramChecker {
 
     boolean isIsogram(String phrase) {
 
-        final String phraseNormalized = phrase.toLowerCase();
+        final String phraseNormalized = phrase.toLowerCase()
+                .replace("-", "");
 
         return phraseNormalized.chars()
                 .noneMatch(
