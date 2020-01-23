@@ -1,27 +1,24 @@
-import java.util.function.IntPredicate;
-
 class IsogramChecker {
 
     boolean isIsogram(String phrase) {
 
-        final String phraseNormalized = phrase.toLowerCase()
-                .replace("-", "")
-                .replace(" ", "");
+        final String phraseNormalized = removeHyphensAndSpaces(phrase);
 
-        return phraseNormalized.chars()
-                .noneMatch(
-                        isTheLetterDuplicatedInPhrase(phraseNormalized)
-                );
+        return isTheSameLengthAfterRemovingDuplicatedLetters(phraseNormalized);
+
 
     }
 
-    private IntPredicate isTheLetterDuplicatedInPhrase(final String phrase) {
+    private boolean isTheSameLengthAfterRemovingDuplicatedLetters(final String phraseNormalized) {
+        return phraseNormalized.chars()
+                .distinct()
+                .count() == phraseNormalized.length();
+    }
 
-        return examiningLetterForDuplicate ->
-            phrase.chars()
-                .filter(possibleSameLetter ->
-                        possibleSameLetter == examiningLetterForDuplicate)
-                .count() > 1;
+    private String removeHyphensAndSpaces(final String phrase) {
+        return phrase.toLowerCase()
+                .replace("-", "")
+                .replace(" ", "");
     }
 
 }
